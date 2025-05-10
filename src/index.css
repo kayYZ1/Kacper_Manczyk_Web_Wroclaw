@@ -21,6 +21,20 @@ body {
   background-color: var(--background-color);
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-unit);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(var(--spacing-unit) * 2) 0;
+}
+
+
 /* Buttons */
 .btn {
   display: inline-block;
@@ -42,6 +56,12 @@ body {
   background-color: var(--secondary-color);
 }
 
+.btn-secondary {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
 /* Links */
 a {
   color: var(--primary-color);
@@ -51,6 +71,8 @@ a {
 
 a:hover {
   color: var(--secondary-color);
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* Typography */

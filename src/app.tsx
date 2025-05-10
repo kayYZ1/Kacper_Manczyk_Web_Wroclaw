@@ -1,14 +1,16 @@
+import { Routes, Route } from "react-router";
+
+import Layout from "./layout";
 import ProductList from "./features/products/product-list";
-import styles from "./app.module.css"
+import Cart from "./features/cart/cart";
 
 export default function App() {
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>
-        <h1>Produkty</h1>
-        <button className="btn btn-primary">Koszyk</button>
-      </div>
-      <ProductList />
-    </div>
-  )
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<ProductList />} />
+        <Route path="cart" element={<Cart />} />
+      </Route>
+    </Routes>
+  );
 }
