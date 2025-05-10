@@ -1,0 +1,50 @@
+.checkoutContainer {
+  padding: calc(var(--spacing-unit) * 2);
+}
+
+.checkoutList {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-unit) * 2);
+}
+
+.checkoutItem {
+  background: var(--background-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(31, 41, 55, 0.06);
+  padding: calc(var(--spacing-unit) * 3);
+  border: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.checkoutName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-unit);
+}
+
+.checkoutPrice {
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.checkoutPriceTotal {
+  font-size: 1rem;
+  font-weight: 500;
+  font-style: italic;
+  color: gray;
+}
+
+.checkoutTotal {
+  display: flex;
+  justify-content: space-between;
+  margin-top: calc(var(--spacing-unit) * 2);
+  padding-top: calc(var(--spacing-unit) * 2);
+  border-top: 1px solid #e5e7eb;
+  font-weight: 600;
+  font-size: 1.2rem;
+}

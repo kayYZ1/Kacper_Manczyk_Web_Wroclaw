@@ -1,6 +1,6 @@
-import products from "./products.json";
+import Products from "@/lib/data/products.json"
 
-export type Product = typeof products[number];
+export type Product = typeof Products[number];
 
 export type CartItem = Product & {
   quantity: number;

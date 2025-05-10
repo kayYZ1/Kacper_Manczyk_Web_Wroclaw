@@ -1,8 +1,8 @@
-import {createContext, useReducer, useContext } from "react";
+import {createContext, useReducer } from "react";
 import type { Dispatch, ReactNode } from "react";
 
-import type { CartItem, Product } from "@/utils/types";
-import { CartActions } from "@/utils/types";
+import type { CartItem, Product } from "@/lib/types";
+import { CartActions } from "@/lib/types";
 
 type Action =
   | { type: typeof CartActions.ADD_TO_CART, payload: Product }
@@ -61,10 +61,4 @@ export function CartProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export function useCart() {
-  const context = useContext(CartContext);
-  if (!context) {
-    throw new Error("useCart must be used within the provider");
-  }
-  return context;
-}
+export { CartContext }

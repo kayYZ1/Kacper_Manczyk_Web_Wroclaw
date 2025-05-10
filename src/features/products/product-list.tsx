@@ -1,10 +1,10 @@
 import { Fragment } from "react"
 import { useNavigate } from "react-router"
 
-import products from "@/utils/products.json"
-import { useCart } from "@/lib/cart-context"
-import { CartActions } from "@/utils/types"
-import type { Product } from "@/utils/types"
+import products from "@/lib/data/products.json"
+import { useCart } from "@/lib/cart/use-cart"
+import { CartActions } from "@/lib/types"
+import type { Product } from "@/lib/types"
 
 import styles from "./product-list.module.css"
 

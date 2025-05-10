@@ -1,9 +1,9 @@
 import { Fragment } from "react";
 import { useNavigate } from "react-router";
 
-import { useCart } from "@/lib/cart-context";
-import { CartActions } from "@/utils/types";
-import type { CartItem } from "@/utils/types";
+import { useCart } from "@/lib/cart/use-cart";
+import { CartActions } from "@/lib/types";
+import type { CartItem } from "@/lib/types";
 
 import styles from "./cart.module.css";
 
@@ -65,7 +65,6 @@ export default function Cart() {
               <p className={styles.cartPriceTotal}>{countTotalItemPrice(item).toFixed(2)} zł</p>
             </div>
             <div className={styles.cartActions}>
-              <button className="btn btn-primary" onClick={() => removeItem(item.id)}>Usuń</button>
               <button
                 className="btn btn-secondary"
                 onClick={() => incrementItem(item.id)}
@@ -79,6 +78,7 @@ export default function Cart() {
               >
                 -
               </button>
+              <button className="btn btn-primary" onClick={() => removeItem(item.id)}>Usuń</button>
             </div>
           </div>
         ))}
@@ -87,7 +87,7 @@ export default function Cart() {
         <p>Suma: {total.toFixed(2)} zł</p>
         <span className={styles.cartSummaryActions}>
           <button className="btn btn-secondary" onClick={clearCart}>Wyczyść koszyk</button>
-          <button className="btn btn-primary">Podsumowanie</button>
+          <button className="btn btn-primary" onClick={() => navigate("/checkout")}>Podsumowanie</button>
         </span>
       </div>
     </Fragment>
