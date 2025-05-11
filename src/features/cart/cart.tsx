@@ -12,26 +12,27 @@ export default function Cart() {
   const { cart, dispatch } = useCart();
 
   const total = cart.reduce(
-    (sum, item) => sum + item.quantity * (item.price.main + item.price.fractional / 100),
-    0
+    (sum, item) =>
+      sum + item.quantity * (item.price.main + item.price.fractional / 100),
+    0,
   );
 
   const incrementItem = (id: number) => {
-    const item = cart.find(item => item.id === id);
+    const item = cart.find((item) => item.id === id);
     if (item) {
-      dispatch({ 
-        type: CartActions.UPDATE_QUANTITY, 
-        payload: { id, quantity: item.quantity + 1 } 
+      dispatch({
+        type: CartActions.UPDATE_QUANTITY,
+        payload: { id, quantity: item.quantity + 1 },
       });
     }
   };
 
   const decrementItem = (id: number) => {
-    const item = cart.find(item => item.id === id);
+    const item = cart.find((item) => item.id === id);
     if (item && item.quantity > 1) {
-      dispatch({ 
-        type: CartActions.UPDATE_QUANTITY, 
-        payload: { id, quantity: item.quantity - 1 } 
+      dispatch({
+        type: CartActions.UPDATE_QUANTITY,
+        payload: { id, quantity: item.quantity - 1 },
       });
     }
   };
@@ -45,7 +46,10 @@ export default function Cart() {
   };
 
   const countTotalItemPrice = (item: CartItem) => {
-    return item.price.main * item.quantity + item.price.fractional * item.quantity / 100;
+    return (
+      item.price.main * item.quantity +
+      (item.price.fractional * item.quantity) / 100
+    );
   };
 
   return (
@@ -55,14 +59,16 @@ export default function Cart() {
         <a onClick={() => navigate("/")}>Powrót do listy produktów</a>
       </div>
       <div className={styles.cartList}>
-        {cart.map(item => (
+        {cart.map((item) => (
           <div className={styles.cartItem} key={item.id}>
             <div>
               <h2 className={styles.cartName}>{item.name}</h2>
               <p className={styles.cartPrice}>
                 {item.price.main}.{item.price.fractional} zł × {item.quantity}
               </p>
-              <p className={styles.cartPriceTotal}>{countTotalItemPrice(item).toFixed(2)} zł</p>
+              <p className={styles.cartPriceTotal}>
+                {countTotalItemPrice(item).toFixed(2)} zł
+              </p>
             </div>
             <div className={styles.cartActions}>
               <button
@@ -78,7 +84,12 @@ export default function Cart() {
               >
                 -
               </button>
-              <button className="btn btn-primary" onClick={() => removeItem(item.id)}>Usuń</button>
+              <button
+                className="btn btn-primary"
+                onClick={() => removeItem(item.id)}
+              >
+                Usuń
+              </button>
             </div>
           </div>
         ))}
@@ -86,8 +97,15 @@ export default function Cart() {
       <div className={styles.cartSummary}>
         <p>Suma: {total.toFixed(2)} zł</p>
         <span className={styles.cartSummaryActions}>
-          <button className="btn btn-secondary" onClick={clearCart}>Wyczyść koszyk</button>
-          <button className="btn btn-primary" onClick={() => navigate("/checkout")}>Podsumowanie</button>
+          <button className="btn btn-secondary" onClick={clearCart}>
+            Wyczyść koszyk
+          </button>
+          <button
+            className="btn btn-primary"
+            onClick={() => navigate("/checkout")}
+          >
+            Podsumowanie
+          </button>
         </span>
       </div>
     </Fragment>

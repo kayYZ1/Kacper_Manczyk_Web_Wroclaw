@@ -1,7 +1,3 @@
-.checkoutContainer {
-  padding: calc(var(--spacing-unit) * 2);
-}
-
 .checkoutList {
   display: flex;
   flex-direction: column;

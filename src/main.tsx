@@ -1,13 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router";
 
-import { CartProvider } from './lib/cart/cart-provider.tsx'
-import App from './app.tsx'
+import { CartProvider } from "./lib/cart/cart-provider.tsx";
+import App from "./app.tsx";
 
-import './index.css'
+import "./index.css";
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <CartProvider>
@@ -15,4 +15,4 @@ createRoot(document.getElementById('root')!).render(
       </CartProvider>
     </BrowserRouter>
   </StrictMode>,
-)
+);
