@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router";
+import { HashRouter } from "react-router";
 
 import { CartProvider } from "./lib/cart/cart-provider.tsx";
 import App from "./app.tsx";
@@ -9,10 +9,10 @@ import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter basename="/Kacper_Manczyk_Web_Wroclaw">
+    <HashRouter>
       <CartProvider>
         <App />
       </CartProvider>
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>,
 );

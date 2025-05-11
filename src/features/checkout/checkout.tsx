@@ -28,7 +28,7 @@ export default function Checkout() {
     sessionStorage.setItem("order", JSON.stringify(cart));
     dispatch({ type: CartActions.CLEAR_CART });
     //Put items in the sessionStorage, clear the cart and make a full page reload.
-    window.location.href = "/order-confirmation.html";
+    window.location.href = "/Kacper_Manczyk_Web_Wroclaw/order-confirmation.html";
   };
 
   return (
